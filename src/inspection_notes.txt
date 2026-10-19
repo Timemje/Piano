@@ -1,0 +1,14 @@
+Manual PDF inspection (all 6 pages rasterised with pdftoppm at 80–200 dpi):
+- Fixed during inspection: "una corda" collided with the first "Ped." mark (m. 1) -> moved
+  into the dynamics line; doubled rests in voice 2 (mm. 4, 5, 27) -> spacers; the m. 41 tempo
+  text was squeezed against the right margin by an automatic line break -> explicit system
+  breaks at phrase boundaries; mm. 33-36 carried six chromatic accidentals per bar -> temporary
+  D-minor key signature with double bars at mm. 32/36; m. 50 breath mark -> straight caesura;
+  crowded system mm. 50-53 -> split at m. 52.
+- Page turns fall where a hand is free: p.1->2 at the m. 16 fermata, p.3->4 at m. 44 (RH rests
+  1.5 beats), p.5->6 at the m. 72 rests.
+- Remaining, judged acceptable: low-register ledger lines in mm. 54 and 76 (8vb not used so the
+  octave doublings read directly); tuplet numbers shown on every LH triplet group in mm. 46-47;
+  m. 73 inner dyad D4-F4 sits close beneath the melody A4 (legible, no overlap); page 6 holds
+  only the two coda systems.
+- No note/slur/dynamic/pedal collisions found; LilyPond reports 0 warnings.

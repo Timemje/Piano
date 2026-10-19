@@ -1,0 +1,88 @@
+VALIDATION REPORT — An Unfinished Grief (Concert Prelude for Solo Piano)
+Generated 2026-10-19 20:06 UTC by src/validate.py
+Canonical model: 80 measures, 927 notated note heads (RH 486, LH 441).
+
+1. CHORD-SPAN VALIDATION (same hand, all simultaneously sounding notated notes,
+   tied/sustained voices merged, checked at every onset boundary)
+  RH: widest simultaneous span = 12 semitones (m. 7, beat 3, MIDI [63, 66, 75])
+  LH: widest simultaneous span = 12 semitones (m. 1, beat 1, MIDI [25, 37])
+  [PASS] no same-hand span exceeds 12 semitones — 0 violations
+
+2. SIMULTANEOUS NOTE-COUNT VALIDATION
+  RH: maximum simultaneous notes = 5 (first at m. 42)
+  LH: maximum simultaneous notes = 4 (first at m. 13)
+  [PASS] no hand ever holds more than five notes — 0 violations
+
+3. MEASURE-DURATION VALIDATION (4/4; each voice summed independently,
+   tuplets scaled, spacer rests counted, voices not double-counted)
+  [PASS] source parses without errors
+  [PASS] all 365 active voice-measures total exactly one 4/4 bar
+  [PASS] measures numbered contiguously 1–80, no repeats, no pickup
+
+4. FILE INTEGRITY
+  [PASS] LilyPond compilation of music.ly exits successfully — exit code 0; 0 warnings/errors in log
+      (GNU LilyPond 2.24.3 (running Guile 2.2))
+  [PASS] music.pdf is a readable PDF — 6 pages, 423960 bytes
+  [PASS] PDF text layer contains the title
+  [PASS] music.midi parses with mido — type 1, 3 tracks, 480 TPQ, 893 note-ons
+  [PASS] music.mxl is a valid compressed MusicXML package — entries ['mimetype', 'META-INF/container.xml', 'music.musicxml']; rootfile music.musicxml; root <score-partwise version=4.0>
+  [PASS] MusicXML reopens in music21 without parsing errors — music21 10.5.0: 2 staves, 80 measures
+
+5. CROSS-FORMAT CONSISTENCY against the canonical event model
+  [PASS] LilyPond (RH): pitches+spelling, onsets, durations match model — 486 LilyPond note events vs 486 model
+  [PASS] LilyPond (RH): rest count matches model — 56 vs 56
+  [PASS] LilyPond (LH): pitches+spelling, onsets, durations match model — 441 LilyPond note events vs 441 model
+  [PASS] LilyPond (LH): rest count matches model — 18 vs 18
+  [PASS] LilyPond-generated MIDI (RH): sustained notes match model — 470 vs 470
+  [PASS] LilyPond-generated MIDI (LH): sustained notes match model — 423 vs 423
+  [PASS] MusicXML (RH): pitches+spelling, onsets, durations, staff match model — 486 vs 486
+  [PASS] MusicXML (LH): pitches+spelling, onsets, durations, staff match model — 441 vs 441
+  [PASS] MusicXML: tempo texts at the same measures as the model — 5 tempo texts: m1 Largo doloroso, m17 Poco più mosso, m33 Più agitato, m41 Largamente, con tutta la forza, m57 Tempo I
+  [PASS] essential tempo changes agree: model, MusicXML <sound tempo>, MIDI tempo map — 42 changes, e.g. m1=56, m5=56, m8=52, m9=56, m13=54, m16=48, m17=62, m19=63, m20=64, m22=60
+  [PASS] MusicXML: dynamic marks preserved — 37 vs 37
+  [PASS] MusicXML: slurs preserved — 85 vs 85
+  [PASS] MusicXML: pedal marks preserved — 131 vs 131
+  [PASS] MusicXML: ties preserved — 34 vs 34
+  [PASS] MusicXML: complete repeat-free measure structure — 80 measures, 0 repeats
+  [PASS] MIDI (RH): every sustained note (ties merged) present with correct pitch and onset — 470 vs 470
+  [PASS] MIDI (LH): every sustained note (ties merged) present with correct pitch and onset — 423 vs 423
+
+6. PERFORMANCE DURATION (from the MIDI tempo map, incl. ritardandi and fermatas)
+  MIDI length: 352.1 s = 5:52.1
+  tempo map: 405 tempo events, range 23.4–70.0 BPM (quarter)
+    A  (1–16):   72.5 s
+    B  (17–40):   89.5 s
+    C  (41–56):   72.5 s
+    A' (57–72):   73.1 s
+    Coda (73–80):   44.5 s
+  [PASS] estimated duration within the 5–6 minute target — 5.87 min
+
+7. ADDITIONAL MUSICAL / NOTATIONAL CHECKS
+  [PASS] all pitches inside the piano range A0–C8 — lowest MIDI 21, highest MIDI 97
+  [PASS] no hand crossing / overlapping hand positions (LH top <= RH bottom) — 0 instances
+  [PASS] pedal depressions and releases alternate correctly; pedal up at the end
+  [PASS] slurs balanced in every voice
+  [PASS] every tie lands on the same pitch in the next event
+  [PASS] no leap over two octaves inside 0.35 s in either hand — 0
+
+8. SCORE INSPECTION
+  Automated: LilyPond log scanned above for warnings (collisions, bar-check failures, etc.).
+  Manual: every PDF page rasterised (pdftoppm, 90–200 dpi) and inspected; findings are
+  recorded below (src/inspection_notes.txt).
+  Manual PDF inspection (all 6 pages rasterised with pdftoppm at 80–200 dpi):
+  - Fixed during inspection: "una corda" collided with the first "Ped." mark (m. 1) -> moved
+    into the dynamics line; doubled rests in voice 2 (mm. 4, 5, 27) -> spacers; the m. 41 tempo
+    text was squeezed against the right margin by an automatic line break -> explicit system
+    breaks at phrase boundaries; mm. 33-36 carried six chromatic accidentals per bar -> temporary
+    D-minor key signature with double bars at mm. 32/36; m. 50 breath mark -> straight caesura;
+    crowded system mm. 50-53 -> split at m. 52.
+  - Page turns fall where a hand is free: p.1->2 at the m. 16 fermata, p.3->4 at m. 44 (RH rests
+    1.5 beats), p.5->6 at the m. 72 rests.
+  - Remaining, judged acceptable: low-register ledger lines in mm. 54 and 76 (8vb not used so the
+    octave doublings read directly); tuplet numbers shown on every LH triplet group in mm. 46-47;
+    m. 73 inner dyad D4-F4 sits close beneath the melody A4 (legible, no overlap); page 6 holds
+    only the two coda systems.
+  - No note/slur/dynamic/pedal collisions found; LilyPond reports 0 warnings.
+
+SUMMARY
+  0 failed checks — all checks passed.
